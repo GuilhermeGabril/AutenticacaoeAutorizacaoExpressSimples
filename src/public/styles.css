@@ -1,3 +1,4 @@
+/* styles.css */
 
 /* Reset básico */
 * {
@@ -62,11 +63,32 @@ button:hover {
     font-size: 24px;
 }
 
+/* Estilo da lista de usuários */
+.user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+/* Link de navegação */
 a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
     text-decoration: none;
-    color: #007bff;
 }
 
 a:hover {
-    text-decoration: underline;
+    background-color: #0056b3;
 }

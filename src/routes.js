@@ -1,17 +1,17 @@
-const express = require('express')
-const authController = require('./controllers/auth-controller')
-const dashboardController = require('./controllers/dashboard-controller')
-const authMiddleware = require('./middlewares/auth-middleware')
+const express = require('express');
+const dashboardController = require('./controllers/dashboard-controller');
+const authController = require('./controllers/auth-controller');
+const { authMiddleware, ensureUserIsAdmin } = require('./middlewares/auth-middleware');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', authController.index)
+router.get('/', authController.index);
+router.post('/auth/register', authController.register);
+router.post('/auth/login', authController.login);
+router.get('/auth/logout', authMiddleware, authController.logout);
 
-router.post('/auth/register', authController.register)
-router.post('/auth/login', authController.login)
+router.get('/dashboard', authMiddleware, dashboardController.dashboard);
+router.get('/dashboard/users', authMiddleware, ensureUserIsAdmin, dashboardController.users); // Rota para a lista de usuários
 
-router.get('/auth/logout', authMiddleware, authController.logout)
+module.exports = router;
 
-router.get('/dashboard', authMiddleware, dashboardController.dashboard)
-
-module.exports = router

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos os Usuários</title>
+  <link rel="stylesheet" href="/styles.css"> 
+</head>
+
+<body>
+  <h2>Lista de Usuários Cadastrados</h2>
+
+  <ul class="user-list">
+    <% users.forEach(user => { %>
+      <li class="user-item">
+        <%= user.username %> (<%= user.role %>)
+      </li>
+    <% }) %>
+  </ul>
+  
+  <a href="/dashboard">Voltar ao Dashboard</a> <!-- Link para voltar ao dashboard -->
+</body>
+
+</html>
